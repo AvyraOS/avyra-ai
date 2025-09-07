@@ -1,103 +1,145 @@
-import Image from "next/image";
+"use client";
+
+import { useEffect } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+// Section Components
+import Navbar from '@/components/landing/navbar';
+import Hero from '@/components/landing/hero';
+import FounderQuote from '@/components/landing/founder-quote';
+import OpsTeam from '@/components/landing/ops-team';
+import Agents from '@/components/landing/agents';
+import Integrations from '@/components/landing/integrations';
+import HowItWorks from '@/components/landing/how-it-works';
+import TrustedBy from '@/components/landing/trusted-by';
+import ScaleSolutions from '@/components/landing/scale-solutions';
+import Footer from '@/components/landing/footer';
+
+
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  useEffect(() => {
+    // Register GSAP plugins
+    gsap.registerPlugin(ScrollTrigger);
+    
+    // Force scroll to top on page load
+    if (history.scrollRestoration) {
+      history.scrollRestoration = 'manual';
+    }
+    
+    // Remove hash if present to avoid auto-scrolling
+    if (window.location.hash) {
+      history.pushState('', document.title, window.location.pathname + window.location.search);
+    }
+    
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'auto'
+    });
+    
+    // Maintain scroll position on resize
+    const maintainScrollPosition = () => {
+      // Calculate how far down the page we are (as a percentage)
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercentage = scrollTop / totalHeight;
+      
+      // Store this percentage
+      sessionStorage.setItem('scrollPercentage', scrollPercentage.toString());
+    };
+    
+    // Apply the saved scroll percentage after resize
+    const applyScrollPosition = () => {
+      const storedScrollPercentage = sessionStorage.getItem('scrollPercentage');
+      if (storedScrollPercentage) {
+        const percentage = parseFloat(storedScrollPercentage);
+        const totalHeight = document.documentElement.scrollHeight - window.innerHeight;
+        const scrollTarget = percentage * totalHeight;
+        
+        window.scrollTo(0, scrollTarget);
+      }
+    };
+    
+    // Add event listeners for scroll position maintenance
+    let resizeTimer: NodeJS.Timeout;
+    window.addEventListener('scroll', maintainScrollPosition);
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        applyScrollPosition();
+      }, 50); // Short delay to let layout settle
+    });
+    
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+    // Handle smooth scrolling for nav links
+    const handleSmoothScroll = () => {
+      const navLinks = document.querySelectorAll('a[href^="#"]');
+      
+      navLinks.forEach(link => {
+        link.addEventListener('click', (e) => {
+          const href = (link as HTMLAnchorElement).getAttribute('href');
+          if (!href || href === '#') return;
+          
+          e.preventDefault();
+          const targetId = href.substring(1);
+          const targetSection = document.getElementById(targetId);
+          
+          if (targetSection) {
+            // Calculate offset position (10% of viewport height)
+            const offset = window.innerHeight * 0.1;
+            
+            // Calculate the final scroll position
+            const elementPosition = targetSection.getBoundingClientRect().top + window.pageYOffset;
+            const offsetPosition = elementPosition - offset;
+            
+            // Perform the scroll
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: 'smooth'
+            });
+          }
+        });
+      });
+    };
+    
+    // Initialize smooth scrolling after a short delay to ensure DOM is ready
+    setTimeout(handleSmoothScroll, 500);
+
+    // Clean up function
+    return () => {
+      ScrollTrigger.getAll().forEach(t => t.kill());
+      
+      // Clean up event listeners
+      window.removeEventListener('scroll', maintainScrollPosition);
+      window.removeEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+      });
+      clearTimeout(resizeTimer);
+    };
+  }, []);
+
+  return (
+    <main className="min-h-screen text-white">
+ 
+      
+      {/* Main Navigation */}
+      <Navbar />
+      
+      {/* Main content sections */}
+      <div>
+        <Hero />
+        <FounderQuote />
+        <OpsTeam />
+        <Agents />
+        <Integrations />
+        <HowItWorks />
+        <TrustedBy />
+        <ScaleSolutions />
+        <Footer />
+      </div>
+    </main>
   );
 }
+
