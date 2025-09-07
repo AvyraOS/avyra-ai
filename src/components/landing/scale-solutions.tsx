@@ -120,7 +120,7 @@ const ScaleSolutions = () => {
   return (
     <section 
       ref={sectionRef}
-      className="relative w-full bg-transparent overflow-hidden py-16 md:py-20 lg:py-28" 
+      className="relative w-full bg-[#080808] overflow-hidden py-16 md:py-20 lg:py-28" 
       id="scale"
     >
       {/* Container */}

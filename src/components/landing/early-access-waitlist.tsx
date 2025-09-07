@@ -13,7 +13,7 @@ const EarlyAccessWaitlist = () => {
   };
 
   return (
-    <section className="bg-[#08090A] py-16 md:py-24">
+    <section className="bg-transparent py-16 md:py-24">
       <div className="container mx-auto px-4 md:px-6 lg:px-8">
         
         {/* Desktop Layout */}

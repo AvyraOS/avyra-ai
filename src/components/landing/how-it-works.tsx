@@ -48,7 +48,7 @@ export default function HowItWorks() {
   };
 
   return (
-    <section className="bg-transparent relative py-16 lg:py-28">
+    <section className="bg-[#080808] relative py-16 lg:py-28">
       {/* Section Header - Responsive */}
       <div className="flex flex-col items-center justify-center mb-8 px-4">
         <div className="flex flex-col gap-3.5 items-center justify-start w-full max-w-[459px]">
