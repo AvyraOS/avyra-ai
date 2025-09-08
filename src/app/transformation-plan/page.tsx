@@ -124,7 +124,7 @@ export default function TransformationPlan() {
               />
             </div>
             <div className="flex flex-col font-['Inter'] font-medium justify-center leading-[0] text-[#d5dbe6] text-[12px] md:text-[15px] text-nowrap tracking-[0.65px] uppercase">
-              <p className="leading-[16.9px] whitespace-pre">PERSONALIZED AI STRATEGY AND ROADMAP</p>
+              <p className="leading-[16.9px] whitespace-pre">PLUG-AND-PLAY AI STRATEGY AND ROADMAP</p>
             </div>
           </div>
 
@@ -228,7 +228,7 @@ export default function TransformationPlan() {
               className="w-full h-full bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] rounded-[8px] flex items-center justify-center gap-1.5 px-4 md:px-8 py-3 relative z-10"
             >
               <span className="text-[#3a3a3a] text-[16px] font-semibold font-['Inter'] tracking-[-0.16px] leading-[20px]">
-                Get My Custom Plan
+                Get my Freedom Blueprint
               </span>
               <div className="w-[22px] h-[22px]">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">

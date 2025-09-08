@@ -122,7 +122,7 @@ const Hero = () => {
              }} />
              
                 {/* Client Logos Animation - At background level */}
-        <div className="absolute bottom-[60px] md:bottom-[80px] left-1/2 transform -translate-x-1/2 w-full -z-10">
+        <div className="absolute bottom-[80px] md:bottom-[110px] left-1/2 transform -translate-x-1/2 w-full -z-10">
           <div className="w-full flex justify-center relative">
             {/* Solid background blockers on left and right */}
             <div className="absolute left-0 top-0 w-[15%] h-[50px] sm:h-[65px] md:h-[80px] bg-[#080808] z-[20]"></div>
@@ -169,7 +169,7 @@ const Hero = () => {
       </div>
 
       {/* Top Pill - Separate layer behind gradient */}
-      <div className="absolute top-[120px] md:top-[22vh] left-1/2 transform -translate-x-1/2 z-10 text-center px-4 w-full">
+      <div className="absolute top-[120px] md:top-[17vh] left-1/2 transform -translate-x-1/2 z-10 text-center px-4 w-full">
         <div className="mb-3 sm:mb-4 md:mb-6">
           <div className="TopPill w-[21rem] sm:w-[327px] md:w-[327px] h-[1.875rem] sm:h-[31.20px] md:h-[31.20px] relative bg-[#1a1b20] rounded-3xl overflow-hidden mx-auto">
             <div className="Container size-[1.0625rem] sm:size-[18.40px] md:size-[18.40px] left-[0.5rem] sm:left-[8.60px] md:left-[8.60px] top-[0.40625rem] sm:top-[6.60px] md:top-[6.60px] absolute overflow-hidden">
@@ -181,7 +181,7 @@ const Hero = () => {
       </div>
 
       {/* Main Content Layer - positioned with better spacing below pill */}
-      <div className="absolute top-[170px] md:top-[calc(22vh+70px)] left-1/2 transform -translate-x-1/2 z-30 text-center px-4 w-full">
+      <div className="absolute top-[170px] md:top-[calc(16vh+70px)] left-1/2 transform -translate-x-1/2 z-30 text-center px-4 w-full max-w-[1440px]">
 
         {/* Hero content */}
         <div className="text-center opacity-0 hero-main-content">
@@ -317,12 +317,6 @@ const Hero = () => {
               />
             </div>
 
-            {/* Social Proof Text - Responsive spacing above logos */}
-            <div className="mt-[48px] md:mt-[64px] text-center relative z-30">
-              <p className="text-[#D5DBE6] text-sm md:text-base font-normal font-['Inter'] opacity-60">
-                Loved by 100+ companies
-              </p>
-            </div>
 
 
 
@@ -344,6 +338,13 @@ const Hero = () => {
             </div> */}
            
           </div>
+      </div>
+
+      {/* Social Proof Text - Fixed positioning to maintain consistent distance from bottom */}
+      <div className="absolute bottom-[190px] md:bottom-[210px] left-1/2 transform -translate-x-1/2 z-30 text-center w-full max-w-[1440px]">
+        <p className="text-[#D5DBE6] text-sm md:text-base font-normal font-['Inter'] opacity-60">
+          Loved by 100+ companies
+        </p>
       </div>
     </section>
   );

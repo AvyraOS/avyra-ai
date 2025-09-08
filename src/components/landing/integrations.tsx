@@ -92,7 +92,7 @@ const Integrations = () => {
           
           {/* Section Pill */}
           <div className="mb-6 flex justify-center">
-            <div className="bg-[#1b1c20] h-[31px] w-[150px] rounded-[24px] relative overflow-hidden">
+            <div className="bg-[#1b1c20] h-[31px] w-[160px] rounded-[24px] relative overflow-hidden ">
               {/* Gradient dot */}
               <div className="absolute left-[8.6px] top-[6.6px] w-[18.4px] h-[18.4px]">
                 <div className="absolute left-1/2 top-[31.25%] bottom-[31.25%] w-[6.9px] rounded-[6.9px] bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] transform -translate-x-1/2">
@@ -100,7 +100,7 @@ const Integrations = () => {
                 </div>
               </div>
               {/* Text */}
-              <div className="absolute left-[27.6px] top-[4.6px] bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] bg-clip-text text-transparent font-medium text-[14px] leading-[22px] tracking-[-0.14px]">
+              <div className="absolute left-[27.6px] top-[4.6px] bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] bg-clip-text text-transparent font-medium text-[14px] leading-[22px] tracking-[-0.14px] ">
                 COLLABORATION
               </div>
             </div>

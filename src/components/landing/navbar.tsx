@@ -96,12 +96,13 @@ const Navbar = () => {
               >
                 Solutions
               </Link>
-              <Link 
+              {/* <Link 
                 href="#results" 
                 className="text-[#d5dbe6] text-base font-normal font-['Inter'] leading-relaxed hover:text-white transition-colors duration-200 whitespace-nowrap"
               >
                 Results
-              </Link>
+              </Link> */}
+           
               <Link 
                 href="#pricing" 
                 className="text-[#d5dbe6] text-base font-normal font-['Inter'] leading-relaxed hover:text-white transition-colors duration-200 whitespace-nowrap"
@@ -109,18 +110,24 @@ const Navbar = () => {
                 Pricing
               </Link>
               <Link 
-                href="#ai-resources" 
+                href="#blog" 
                 className="text-[#d5dbe6] text-base font-normal font-['Inter'] leading-relaxed hover:text-white transition-colors duration-200 whitespace-nowrap"
               >
-                AI Resources
+                Blog
+              </Link>
+              <Link 
+                href="#community" 
+                className="text-[#d5dbe6] text-base font-normal font-['Inter'] leading-relaxed hover:text-white transition-colors duration-200 whitespace-nowrap"
+              >
+                Community
               </Link>
             </div>
 
             {/* Get Started Button - Only show on large screens */}
             <Link href="/intake" className="hidden lg:block group">
-              <div className="w-[123px] h-10 relative rounded-[100px] shadow-[inset_0px_0px_8px_0px_rgba(248,248,248,0.25),0px_32px_24px_-16px_rgba(0,0,0,0.40)] border-[1.5px] border-[#484848] overflow-hidden flex justify-center items-center p-1 transition-all duration-300">
-                <div className="w-[115px] h-8 bg-gradient-to-b from-[rgba(18,18,18,0.30)] to-[rgba(18,18,18,0.30)] bg-[rgba(248,248,248,0.01)] rounded-[100px] border-[1.5px] border-[#242424] backdrop-blur-[6px] overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:shadow-[inset_0px_0px_20px_0px_rgba(255,225,198,0.2),inset_0px_0px_12px_0px_rgba(242,198,166,0.3),inset_0px_0px_6px_0px_rgba(242,198,166,0.5)] group-hover:border-[#f2c6a6]/30">
-                  <div className="text-[#f8f8f8]/95 text-sm font-normal font-['Inter'] leading-tight transition-colors duration-300 group-hover:text-[#f2c6a6]">Get Started</div>
+              <div className="w-[240px] h-10 relative rounded-[100px] shadow-[inset_0px_0px_8px_0px_rgba(248,248,248,0.25),0px_32px_24px_-16px_rgba(0,0,0,0.40)] border-[1.5px] border-[#484848] overflow-hidden flex justify-center items-center p-1 transition-all duration-300">
+                <div className="w-[236px] h-8 bg-gradient-to-b from-[rgba(18,18,18,0.30)] to-[rgba(18,18,18,0.30)] bg-[rgba(248,248,248,0.01)] rounded-[100px] border-[1.5px] border-[#242424] backdrop-blur-[6px] overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:shadow-[inset_0px_0px_20px_0px_rgba(255,225,198,0.2),inset_0px_0px_12px_0px_rgba(242,198,166,0.3),inset_0px_0px_6px_0px_rgba(242,198,166,0.5)] group-hover:border-[#f2c6a6]/30">
+                  <div className="text-[#f8f8f8]/95 text-sm font-normal font-['Inter'] leading-tight transition-colors duration-300 group-hover:text-[#f2c6a6]">Get my Freedom Plan</div>
                 </div>
               </div>
             </Link>
@@ -188,13 +195,13 @@ const Navbar = () => {
             >
               Solutions
             </Link>
-            <Link 
+            {/* <Link 
               href="#results" 
               className="text-white text-2xl font-normal font-['Inter'] py-3 border-b border-white/5 hover:text-[#f2c6a6] transition-colors"
               onClick={closeMobileMenu}
             >
               Results
-            </Link>
+            </Link> */}
             <Link 
               href="#pricing" 
               className="text-white text-2xl font-normal font-['Inter'] py-3 border-b border-white/5 hover:text-[#f2c6a6] transition-colors"
@@ -203,11 +210,18 @@ const Navbar = () => {
               Pricing
             </Link>
             <Link 
-              href="#ai-resources" 
+              href="#blog" 
               className="text-white text-2xl font-normal font-['Inter'] py-3 border-b border-white/5 hover:text-[#f2c6a6] transition-colors"
               onClick={closeMobileMenu}
             >
-              AI Resources
+              Blog
+            </Link>
+            <Link 
+              href="#community" 
+              className="text-white text-2xl font-normal font-['Inter'] py-3 border-b border-white/5 hover:text-[#f2c6a6] transition-colors"
+              onClick={closeMobileMenu}
+            >
+              Community
             </Link>
           </div>
 
@@ -228,7 +242,7 @@ const Navbar = () => {
                 >
                   {/* Button Content */}
                   <div className="w-full h-full bg-gradient-to-b from-[#f2c6a6] to-[#bb835a] text-[#3a3a3a] rounded-lg flex items-center justify-center text-base font-medium font-['Inter'] transition-all duration-300 hover:opacity-90">
-                    <span>Get My Automation Plan</span>
+                    <span>Get My Freedom Plan</span>
                     <svg 
                       className="ml-2 w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" 
                       fill="currentColor" 

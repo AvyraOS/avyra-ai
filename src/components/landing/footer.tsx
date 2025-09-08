@@ -95,7 +95,7 @@ const Footer = () => {
           <div className="max-w-2xl mx-auto mb-8">
             <p className="text-[#d5dbe6] text-[16px] leading-[25.6px] tracking-[-0.32px]">
               Get your time back with a plug-and-play AI team.<br />
-              Start your 7-day free trial—no limits, no learning curve.
+              Join hundreds of ambitious founders building with freedom.
             </p>
           </div>
 
@@ -115,7 +115,7 @@ const Footer = () => {
                   href="/intake" 
                   className="relative z-50 inline-flex items-center justify-center bg-gradient-to-b from-[#f2c6a6] to-[#bb835a] text-[#3a3a3a] px-8 rounded-lg text-base font-medium font-['Inter'] transition-all duration-300 hover:opacity-90 cursor-pointer h-[46px]"
                 >
-                  <span>Get my automation plan</span>
+                  <span>Get my Freedom Plan</span>
                   <svg 
                     className="ml-2 w-4 h-4 transform transition-transform duration-300 group-hover:translate-x-1" 
                     fill="currentColor" 

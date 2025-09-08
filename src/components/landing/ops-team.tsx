@@ -109,7 +109,7 @@ const OpsTeam = () => {
               </div>
               {/* Text */}
               <div className="absolute left-[27.6px] top-[4.6px] bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] bg-clip-text text-transparent font-medium text-[14px] leading-[22px] tracking-[-0.14px]">
-                FOUNDER FREEDOM
+                TRANSFORMATION
               </div>
             </div>
           </div>

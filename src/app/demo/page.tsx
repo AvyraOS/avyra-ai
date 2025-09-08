@@ -184,7 +184,7 @@ export default function Demo() {
               className="w-full h-full bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] rounded-[8px] flex items-center justify-center gap-1.5 px-4 md:px-8 py-3 relative z-10 hover:from-[#f4c8a8] hover:to-[#be865d] transition-all duration-300"
             >
               <span className="text-[#3a3a3a] text-[16px] font-semibold font-['Inter'] tracking-[-0.16px] leading-[20px]">
-                Book My Call
+                Book my Freedom Call
               </span>
               <div className="w-[22px] h-[22px]">
                 <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -200,7 +200,7 @@ export default function Demo() {
           href="/settings/billing"
           className="text-[#d5dbe6] text-[16px] font-normal font-['Inter'] tracking-[-0.32px] leading-[25.6px] text-center hover:text-[#f2c6a6] transition-colors duration-300"
         >
-          Take me to Pricing
+          View Plans & Pricing
         </Link>
       </motion.div>
 

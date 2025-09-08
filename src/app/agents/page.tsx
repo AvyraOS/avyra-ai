@@ -205,7 +205,7 @@ export default function Agents() {
           </div>
         </div>
         <Link href="/agents" className="text-[#d5dbe6] text-[16px] font-normal font-['Inter'] tracking-[-0.32px] leading-[25.6px] text-center hover:text-[#f2c6a6] transition-colors duration-300">
-          See All Agents
+          View Plans & Pricing
         </Link>
       </motion.div>
 
