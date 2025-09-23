@@ -180,7 +180,7 @@ export default function Demo() {
             }}
           >
             <Link 
-              href="/intake"
+              href="/calendar"
               className="w-full h-full bg-gradient-to-b from-[#f2c6a6] to-[#bc845b] rounded-[8px] flex items-center justify-center gap-1.5 px-4 md:px-8 py-3 relative z-10 hover:from-[#f4c8a8] hover:to-[#be865d] transition-all duration-300"
             >
               <span className="text-[#3a3a3a] text-[16px] font-semibold font-['Inter'] tracking-[-0.16px] leading-[20px]">

@@ -240,7 +240,7 @@ const Hero = () => {
                 
                 {/* Button (Top Layer) - 46px height */}
                 <Link 
-                  href="/intake" 
+                  href="/calendar" 
                   className="relative z-50 inline-flex items-center justify-center bg-gradient-to-b from-[#f2c6a6] to-[#bb835a] text-[#3a3a3a] px-8 rounded-lg text-base font-medium font-['Inter'] transition-all duration-300 hover:opacity-90 cursor-pointer h-[46px]"
                 >
                   <span>Get My Automation Plan</span>

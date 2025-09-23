@@ -124,9 +124,9 @@ const Navbar = () => {
             </div>
 
             {/* Get Started Button - Only show on large screens */}
-            <Link href="/intake" className="hidden lg:block group">
-              <div className="w-[240px] h-10 relative rounded-[100px] shadow-[inset_0px_0px_8px_0px_rgba(248,248,248,0.25),0px_32px_24px_-16px_rgba(0,0,0,0.40)] border-[1.5px] border-[#484848] overflow-hidden flex justify-center items-center p-1 transition-all duration-300">
-                <div className="w-[236px] h-8 bg-gradient-to-b from-[rgba(18,18,18,0.30)] to-[rgba(18,18,18,0.30)] bg-[rgba(248,248,248,0.01)] rounded-[100px] border-[1.5px] border-[#242424] backdrop-blur-[6px] overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:shadow-[inset_0px_0px_20px_0px_rgba(255,225,198,0.2),inset_0px_0px_12px_0px_rgba(242,198,166,0.3),inset_0px_0px_6px_0px_rgba(242,198,166,0.5)] group-hover:border-[#f2c6a6]/30">
+            <Link href="/calendar" className="hidden lg:block group">
+              <div className="w-[210px] h-10 relative rounded-[100px] shadow-[inset_0px_0px_8px_0px_rgba(248,248,248,0.25),0px_32px_24px_-16px_rgba(0,0,0,0.40)] border-[1.5px] border-[#484848] overflow-hidden flex justify-center items-center p-1 transition-all duration-300">
+                <div className="w-[206px] h-8 bg-gradient-to-b from-[rgba(18,18,18,0.30)] to-[rgba(18,18,18,0.30)] bg-[rgba(248,248,248,0.01)] rounded-[100px] border-[1.5px] border-[#242424] backdrop-blur-[6px] overflow-hidden flex items-center justify-center transition-all duration-300 group-hover:shadow-[inset_0px_0px_20px_0px_rgba(255,225,198,0.2),inset_0px_0px_12px_0px_rgba(242,198,166,0.3),inset_0px_0px_6px_0px_rgba(242,198,166,0.5)] group-hover:border-[#f2c6a6]/30">
                   <div className="text-[#f8f8f8]/95 text-sm font-normal font-['Inter'] leading-tight transition-colors duration-300 group-hover:text-[#f2c6a6]">Get my Freedom Plan</div>
                 </div>
               </div>
@@ -228,7 +228,7 @@ const Navbar = () => {
           {/* CTA Button at Bottom */}
           <div className="p-6 border-t border-white/10">
             <Link 
-              href="/intake" 
+              href="/calendar" 
               onClick={closeMobileMenu}
               className="block w-full group"
             >
