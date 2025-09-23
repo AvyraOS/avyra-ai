@@ -2,6 +2,8 @@
 
 import { useState } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 interface WorkStep {
   id: number;
@@ -31,14 +33,25 @@ const workSteps: WorkStep[] = [
   },
   {
     id: 4,
-    title: "Start for Free",
+    title: "Book a Call",
     icon: "/icons/right-arrow.svg",
-    isClickable: false
+    isClickable: true
   }
 ];
 
 export default function HowItWorks() {
   const [selectedStep, setSelectedStep] = useState<number>(1);
+  const router = useRouter();
+
+  const handleStepClick = (stepId: number) => {
+    if (stepId === 4) {
+      // Navigate to calendar for "Book a Call"
+      router.push('/calendar');
+    } else {
+      // Regular step selection
+      setSelectedStep(stepId);
+    }
+  };
 
   // Step to image mapping
   const stepImages = {
@@ -142,12 +155,12 @@ export default function HowItWorks() {
                         const isClickable = step.isClickable;
                         
                         return (
-                          <div key={step.id} className={!isClickable ? 'pt-8' : ''}>
+                          <div key={step.id} className={step.id === 4 ? 'pt-8' : ''}>
                             <button
-                            onClick={() => isClickable && setSelectedStep(step.id)}
+                            onClick={() => isClickable && handleStepClick(step.id)}
                             disabled={!isClickable}
-                            className={`w-full flex gap-2.5 ${!isClickable ? 'h-[42px]' : 'h-9'} items-center ${!isClickable ? 'justify-center' : 'justify-start'} overflow-hidden px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer ${
-                              !isClickable 
+                            className={`w-full flex gap-2.5 ${step.id === 4 ? 'h-[42px]' : 'h-9'} items-center ${step.id === 4 ? 'justify-center' : 'justify-start'} overflow-hidden px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer ${
+                              step.id === 4 
                                 ? 'bg-gradient-to-b from-[#f2c6a6] to-[#bc845b]'
                                 : isSelected
                                 ? 'bg-[#1f1f1f]'
@@ -155,7 +168,7 @@ export default function HowItWorks() {
                             }`}
                           >
                             {/* Content - conditional layout for CTA vs regular buttons */}
-                            {!isClickable ? (
+                            {step.id === 4 ? (
                               // CTA Button Layout - Centered with text and arrow
                               <>
                                 {/* Text */}
@@ -227,7 +240,7 @@ export default function HowItWorks() {
               return (
                 <button
                   key={step.id}
-                  onClick={() => isClickable && setSelectedStep(step.id)}
+                  onClick={() => isClickable && handleStepClick(step.id)}
                   disabled={!isClickable}
                   className={`w-full flex gap-2.5 h-9 items-center justify-start overflow-hidden px-4 py-2.5 rounded-lg transition-all duration-200 ${
                     !isClickable 
@@ -284,26 +297,6 @@ export default function HowItWorks() {
             />
           </div>
 
-          {/* 4. Start for Free Button */}
-          <div>
-            <button className="w-full flex gap-2 items-center justify-center overflow-hidden px-4 py-3 rounded-lg transition-all duration-200 bg-gradient-to-b from-[#f2c6a6] to-[#bc845b]">
-              {/* Text */}
-              <div className="flex flex-col font-['Inter'] font-medium justify-center text-[#000000] text-[14px] text-nowrap tracking-[-0.14px] relative shrink-0 leading-[22px]">
-                Start for Free
-              </div>
-              
-              {/* Arrow */}
-              <div className="relative shrink-0 w-[22px] h-[22px]">
-                <Image
-                  src="/icons/right-arrow.svg"
-                  alt=""
-                  width={22}
-                  height={22}
-                  className="w-full h-full"
-                />
-              </div>
-            </button>
-          </div>
 
 
         </div>

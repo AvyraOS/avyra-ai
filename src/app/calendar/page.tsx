@@ -4,6 +4,7 @@ import { useEffect } from 'react';
 import { gsap } from 'gsap';
 import Image from 'next/image';
 import Script from 'next/script';
+import Navbar from '@/components/landing/navbar';
 
 const CalendarPage = () => {
   useEffect(() => {
@@ -27,6 +28,9 @@ const CalendarPage = () => {
 
   return (
     <div className="min-h-screen bg-[#080808]">
+      {/* Navbar */}
+      <Navbar />
+      
       {/* Background Gradients - Fixed positioning */}
       <div className="fixed inset-0 z-0">
         {/* Top Gradient */}
@@ -49,12 +53,12 @@ const CalendarPage = () => {
       </div>
 
       {/* Content Container - Normal flow */}
-      <div className="relative z-20 pt-[80px] md:pt-[12vh] pb-16">
+      <div className="relative z-20 pt-[100px] md:pt-[17vh] pb-16">
         <div className="container mx-auto px-4">
           
           {/* Top Pill */}
           <div className="text-center mb-6">
-            <div className="TopPill inline-flex items-center h-[1.875rem] sm:h-[31.20px] md:h-[31.20px] bg-[#1a1b2038] rounded-3xl px-3 gap-2">
+            <div className="TopPill inline-flex items-center h-[1.875rem] sm:h-[31.20px] md:h-[31.20px] bg-[#5353534d] rounded-3xl px-3 gap-2">
               <div className="Container w-2 h-2 sm:w-[6.90px] sm:h-[6.90px] md:w-[6.90px] md:h-[6.90px] flex-shrink-0">
                 <div className="GradientShadow w-full h-full bg-gradient-to-b from-[#f2c6a6] to-[#bb835a] rounded-full shadow-[inset_0px_1.15px_1.15px_0px_rgba(255,255,255,0.09),inset_0px_1.15px_18.4px_0px_rgba(255,255,255,0.12)]" />
               </div>

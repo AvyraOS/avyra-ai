@@ -68,10 +68,16 @@
   --btn-secondary-text: #F7F8F8;
 }
 
+/* Font families */
+:root {
+  --font-inter: var(--font-inter);
+  --font-instrument-serif: var(--font-instrument-serif);
+}
+
 body {
   background-color: var(--bg-main);
   color: var(--text-primary);
-  font-family: var(--font-sans);
+  font-family: var(--font-inter), system-ui, -apple-system, sans-serif;
   line-height: 1.6;
 }
 

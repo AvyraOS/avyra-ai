@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 interface Feature {
   icon: string;
@@ -83,7 +84,7 @@ const AgentCard = ({
 
             {/* CTA Button - Hidden on mobile, shown on desktop */}
             <div className="w-fit hidden min-[1200px]:block">
-              <button className="bg-[#1f1f1f] px-4 sm:px-4 py-3 sm:py-2.5 rounded-lg flex items-center gap-2.5 sm:gap-2.5 h-10 sm:h-10">
+              <Link href="/calendar" className="bg-[#1f1f1f] px-4 sm:px-4 py-3 sm:py-2.5 rounded-lg flex items-center gap-2.5 sm:gap-2.5 h-10 sm:h-10 hover:bg-[#2a2a2a] transition-colors duration-200">
                 <span className="text-white text-[14px] sm:text-[16px] font-semibold leading-[18px] sm:leading-[20px] tracking-[-0.14px] sm:tracking-[-0.16px]">
                   {ctaText}
                 </span>
@@ -92,7 +93,7 @@ const AgentCard = ({
                     <path fillRule="evenodd" clipRule="evenodd" d="M8.29289 3.29289C8.68342 2.90237 9.31658 2.90237 9.70711 3.29289L13.7071 7.29289C14.0976 7.68342 14.0976 8.31658 13.7071 8.70711L9.70711 12.7071C9.31658 13.0976 8.68342 13.0976 8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L10.5858 9H3C2.44772 9 2 8.55228 2 8C2 7.44772 2.44772 7 3 7H10.5858L8.29289 4.70711C7.90237 4.31658 7.90237 3.68342 8.29289 3.29289Z" fill="white"/>
                   </svg>
                 </div>
-              </button>
+              </Link>
             </div>
           </div>
 
@@ -140,8 +141,9 @@ const AgentCard = ({
           
           {/* Mobile CTA Button - Only visible on mobile, underneath video */}
           <div className="min-[1200px]:hidden">
-            <button 
-              className="bg-[#1f1f1f] flex items-center justify-center gap-2.5"
+            <Link 
+              href="/calendar"
+              className="bg-[#1f1f1f] flex items-center justify-center gap-2.5 hover:bg-[#2a2a2a] transition-colors duration-200"
               style={{
                 width: '100%',
                 borderRadius: '0px',
@@ -156,7 +158,7 @@ const AgentCard = ({
                   <path fillRule="evenodd" clipRule="evenodd" d="M8.29289 3.29289C8.68342 2.90237 9.31658 2.90237 9.70711 3.29289L13.7071 7.29289C14.0976 7.68342 14.0976 8.31658 13.7071 8.70711L9.70711 12.7071C9.31658 13.0976 8.68342 13.0976 8.29289 12.7071C7.90237 12.3166 7.90237 11.6834 8.29289 11.2929L10.5858 9H3C2.44772 9 2 8.55228 2 8C2 7.44772 2.44772 7 3 7H10.5858L8.29289 4.70711C7.90237 4.31658 7.90237 3.68342 8.29289 3.29289Z" fill="white"/>
                 </svg>
               </div>
-            </button>
+            </Link>
           </div>
         </div>
       </div>
