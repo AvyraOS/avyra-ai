@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect, KeyboardEvent, useRef } from 'react';
+import { useState, useEffect, KeyboardEvent, useRef, Suspense } from 'react';
 import { useForm } from 'react-hook-form';
 import { useSearchParams } from 'next/navigation';
 import { motion } from 'framer-motion';
@@ -17,7 +17,8 @@ type FormData = {
   currentStackOther?: string; // Follow-up for "other-tools"
 };
 
-export default function IntakeForm() {
+// Component that uses useSearchParams wrapped in Suspense
+function IntakeFormWithParams() {
   const searchParams = useSearchParams();
   
   // Get pre-populated data from URL parameters
@@ -936,5 +937,37 @@ export default function IntakeForm() {
         }
             `}</style>
     </div>
+  );
+}
+
+// Loading component for Suspense fallback
+function IntakeFormLoading() {
+  return (
+    <div className="text-white h-screen w-screen overflow-hidden overflow-y-hidden relative flex flex-col items-center justify-center bg-[#080808]">
+      <div className="flex flex-col items-center justify-center w-full max-w-4xl mx-auto z-[1000] p-5">
+        <Image 
+          src="/images/avyra-brandmark.svg" 
+          alt="Avyra" 
+          width={120} 
+          height={40} 
+          className="mb-5"
+        />
+        <div className="text-center">
+          <div className="animate-pulse">
+            <div className="h-16 bg-white/10 rounded-lg w-96 mb-4"></div>
+            <div className="h-6 bg-white/5 rounded-lg w-64 mx-auto"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// Main component wrapped with Suspense
+export default function IntakeForm() {
+  return (
+    <Suspense fallback={<IntakeFormLoading />}>
+      <IntakeFormWithParams />
+    </Suspense>
   );
 } 

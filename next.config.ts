@@ -7,6 +7,8 @@ const nextConfig: NextConfig = {
     // Add any other image configuration as needed
     formats: ['image/webp', 'image/avif'],
   },
+  // Set output file tracing root to silence lockfile warning
+  outputFileTracingRoot: __dirname,
 };
 
 export default nextConfig;
