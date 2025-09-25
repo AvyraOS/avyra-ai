@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     siteName: "Avyra AI",
     images: [
       {
-        url: "/images/Thumbnail.png",
+        url: "/images/thumbnail.png",
         width: 1200,
         height: 630,
         alt: "Avyra AI - AI Automation Platform for Founders",
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
     description: "Get your time back with our plug-and-play AI team. Join hundreds of ambitious founders building their freedom.",
     site: "@AvyraAI",
     creator: "@AvyraAI",
-    images: ["/images/Thumbnail.png"],
+    images: ["/images/thumbnail.png"],
   },
   robots: {
     index: true,
