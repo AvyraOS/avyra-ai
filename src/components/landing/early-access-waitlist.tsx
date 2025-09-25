@@ -23,7 +23,7 @@ const EarlyAccessWaitlist = () => {
           <div className="absolute left-0 top-0 w-[132px] h-[273px] overflow-hidden">
             <div className="absolute left-0 top-[35px] w-[147px] h-[203px]">
               <Image
-                src="/images/waitlist-left-image.PNG"
+                src="/images/waitlist-left-image.png"
                 alt=""
                 width={147}
                 height={203}
