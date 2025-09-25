@@ -34,7 +34,7 @@ const workSteps: WorkStep[] = [
     id: 4,
     title: "Book a Call",
     icon: "/icons/right-arrow.svg",
-    isClickable: true
+    isClickable: false
   }
 ];
 
@@ -154,12 +154,11 @@ export default function HowItWorks() {
                         const isClickable = step.isClickable;
                         
                         return (
-                          <div key={step.id} className={step.id === 4 ? 'pt-8' : ''}>
+                          <div key={step.id} className={!isClickable ? 'pt-8' : ''}>
                             <button
-                            onClick={() => isClickable && handleStepClick(step.id)}
-                            disabled={!isClickable}
-                            className={`w-full flex gap-2.5 ${step.id === 4 ? 'h-[42px]' : 'h-9'} items-center ${step.id === 4 ? 'justify-center' : 'justify-start'} overflow-hidden px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer ${
-                              step.id === 4 
+                            onClick={() => handleStepClick(step.id)}
+                            className={`w-full flex gap-2.5 ${!isClickable ? 'h-[42px]' : 'h-9'} items-center ${!isClickable ? 'justify-center' : 'justify-start'} overflow-hidden px-4 py-2.5 rounded-lg transition-all duration-200 cursor-pointer ${
+                              !isClickable 
                                 ? 'bg-gradient-to-b from-[#f2c6a6] to-[#bc845b]'
                                 : isSelected
                                 ? 'bg-[#1f1f1f]'
@@ -167,7 +166,7 @@ export default function HowItWorks() {
                             }`}
                           >
                             {/* Content - conditional layout for CTA vs regular buttons */}
-                            {step.id === 4 ? (
+                            {!isClickable ? (
                               // CTA Button Layout - Centered with text and arrow
                               <>
                                 {/* Text */}
@@ -239,7 +238,7 @@ export default function HowItWorks() {
               return (
                 <button
                   key={step.id}
-                  onClick={() => isClickable && handleStepClick(step.id)}
+                  onClick={() => handleStepClick(step.id)}
                   disabled={!isClickable}
                   className={`w-full flex gap-2.5 h-9 items-center justify-start overflow-hidden px-4 py-2.5 rounded-lg transition-all duration-200 ${
                     !isClickable 

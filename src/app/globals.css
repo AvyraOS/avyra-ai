@@ -565,6 +565,32 @@ html {
   background-color: var(--bg-card);
 }
 
+/* Simple Calendly widget styles */
+.calendly-inline-widget {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+
+/* Mobile responsiveness for Calendly */
+@media (max-width: 768px) {
+  .calendly-inline-widget {
+    min-width: 280px !important;
+    height: 600px !important;
+  }
+
+}
+
+@media (max-width: 480px) {
+  .calendly-inline-widget {
+    min-width: 260px !important;
+    height: 550px !important;
+  }
+
+}
+
 /* Responsive typography */
 @media (max-width: 768px) {
   .text-heading {

@@ -1,46 +1,116 @@
 "use client";
 
-import { useEffect } from 'react';
-import { gsap } from 'gsap';
+import { useEffect, useState } from 'react';
 import Image from 'next/image';
 import Script from 'next/script';
 import Navbar from '@/components/landing/navbar';
 
+// TypeScript declarations for Calendly
+declare global {
+  interface Window {
+    Calendly?: {
+      initInlineWidget: (options: { url: string; parentElement: HTMLElement; prefill?: Record<string, string>; utm?: Record<string, string>; }) => void;
+      destroyBadgeWidget?: () => void;
+    };
+  }
+}
+
 const CalendarPage = () => {
+  const [key, setKey] = useState(0);
+  
+  console.log('🔄 CalendarPage: Component rendered with key:', key);
+  
+  // Mount effect - runs only once
   useEffect(() => {
-    // Hero content fade-in animation
-    const heroTl = gsap.timeline();
-    heroTl.to(".hero-main-content", {
-      opacity: 1,
-      duration: 0.8,
-      ease: "power2.out"
+    console.log('🚀 CalendarPage: Component mounted');
+    
+    // Log Calendly script status
+    console.log('📜 Calendly script status:', {
+      scriptExists: !!window.Calendly,
+      scriptMethods: window.Calendly ? Object.keys(window.Calendly) : 'N/A'
     });
-
-    // Calendar fade-in animation with slight delay
-    heroTl.to(".calendar-content", {
-      opacity: 1,
-      y: 0,
-      duration: 0.8,
-      ease: "power2.out"
-    }, "-=0.4");
-
-  }, []);
-
+    
+    // Force re-render by updating key when component mounts
+    console.log('🔑 Setting key from 0 to 1');
+    setKey(1);
+    
+    return () => {
+      console.log('🧹 CalendarPage: Component unmounting');
+    };
+  }, []); // Empty dependency array - runs only once
+  
+  // Key change effect - runs when key changes
+  useEffect(() => {
+    console.log('🔑 Key changed to:', key);
+    
+    if (key > 0) {
+      // Log existing calendly widgets
+      const existingWidgets = document.querySelectorAll('.calendly-inline-widget');
+      console.log('📅 Existing calendly widgets found:', existingWidgets.length);
+      existingWidgets.forEach((widget, index) => {
+        console.log(`   Widget ${index}:`, {
+          hasDataUrl: widget.hasAttribute('data-url'),
+          dataUrl: widget.getAttribute('data-url'),
+          hasIframe: !!widget.querySelector('iframe'),
+          innerHTML: widget.innerHTML.length > 0 ? 'Has content' : 'Empty'
+        });
+      });
+      
+      // If Calendly script exists but widget is empty, manually initialize
+      if (window.Calendly && existingWidgets.length > 0) {
+        existingWidgets.forEach((widget, index) => {
+          if (!widget.querySelector('iframe') && widget.getAttribute('data-url')) {
+            console.log(`🔧 Manually initializing widget ${index}`);
+            const dataUrl = widget.getAttribute('data-url');
+            if (dataUrl) {
+              // Clear and manually initialize
+              widget.innerHTML = '';
+              window.Calendly?.initInlineWidget({
+                url: dataUrl,
+                parentElement: widget as HTMLElement,
+                prefill: {},
+                utm: {}
+              });
+            }
+          }
+        });
+      }
+    }
+  }, [key]); // Only depends on key
+  
+  // Delayed check effect - runs when key changes to check widget status
+  useEffect(() => {
+    if (key > 0) {
+      // Check if Calendly reinitializes after key change
+      const timer = setTimeout(() => {
+        const widgets = document.querySelectorAll('.calendly-inline-widget');
+        console.log('⏰ After 1 second, widgets status:', {
+          count: widgets.length,
+          widgets: Array.from(widgets).map((w, i) => ({
+            index: i,
+            hasIframe: !!w.querySelector('iframe'),
+            content: w.innerHTML.length > 0 ? 'Has content' : 'Empty'
+          }))
+        });
+      }, 1000);
+      
+      return () => clearTimeout(timer);
+    }
+  }, [key]);
   return (
     <div className="min-h-screen bg-[#080808]">
       {/* Navbar */}
       <Navbar />
       
-      {/* Background Gradients - Fixed positioning */}
+      {/* Background Gradients */}
       <div className="fixed inset-0 z-0">
-        {/* Top Gradient */}
         <div className="TopGradientBg absolute -top-[241px] left-1/2 transform -translate-x-1/2 w-[381.01px] h-[382px] opacity-40 rounded-br-md blur-[132.70px]" 
              style={{
                background: "radial-gradient(circle, #ad6346 0%, rgba(255,255,255,0.6) 62%, rgba(255,255,255,0.1) 100%)"
              }} />
       </div>
 
-      {/* Hero Top Gradient - Fixed positioning */}
+      {/* Hero Top Gradient */}
       <div className="fixed top-0 left-0 right-0 z-10">
         <Image
           src="/images/hero-top-gradient.png"
@@ -52,7 +122,7 @@ const CalendarPage = () => {
         />
       </div>
 
-      {/* Content Container - Normal flow */}
+      {/* Content Container */}
       <div className="relative z-20 pt-[100px] md:pt-[17vh] pb-16">
         <div className="container mx-auto px-4">
           
@@ -67,7 +137,7 @@ const CalendarPage = () => {
           </div>
 
           {/* Hero content */}
-          <div className="text-center opacity-0 hero-main-content">
+          <div className="text-center hero-main-content" style={{ opacity: 1 }}>
             {/* Hero Header */}
             <div className="flex h-[6.25rem] sm:h-[130px] md:h-[160px] lg:h-[194px] flex-col justify-center self-stretch mb-[1rem] sm:mb-6 md:mb-8">
               <h1 
@@ -95,24 +165,34 @@ const CalendarPage = () => {
               </p>
             </div>
 
-            {/* Calendly Embed - Full width with proper height */}
-            <div className="calendar-content opacity-0 w-full">
-              <div className="calendly-inline-widget w-full" 
-                   data-url="https://calendly.com/dreamflowlabs/dream-discovery-call-1?hide_gdpr_banner=1&background_color=090909&text_color=f0f0f0&primary_color=e3be7e" 
-                   style={{ 
-                     minWidth: '320px', 
-                     height: '700px',
-                     width: '100%'
-                   }}>
-              </div>
+            {/* Calendly Embed - Force refresh on every visit */}
+            <div className="mx-auto">
+              <div 
+                key={key}
+                className="calendly-inline-widget"
+                data-url="https://calendly.com/hello-avyra/dream-discovery-call?background_color=101010&text_color=ffffff&primary_color=d7b877"
+                style={{ minWidth: '320px', height: '700px' }}
+                onLoad={() => console.log('📅 Calendar div onLoad fired')}
+                ref={(el) => {
+                  if (el) {
+                    console.log('📅 Calendar div ref attached, key:', key);
+                    console.log('📅 Div details:', {
+                      hasDataUrl: el.hasAttribute('data-url'),
+                      dataUrl: el.getAttribute('data-url'),
+                      className: el.className,
+                      innerHTML: el.innerHTML.length > 0 ? 'Has content' : 'Empty'
+                    });
+                  }
+                }}
+              ></div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* Additional info section - separate from calendar */}
+      {/* Additional info section */}
       <section className="bg-[#080808] pb-8 md:pb-16">
-        <div className="max-w-4xl mx-auto px-4">
+        <div className="mx-auto px-4">
           <div className="text-center">
             <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-[#D5DBE6] text-sm opacity-70">
               <div className="flex items-center gap-2">
@@ -132,10 +212,20 @@ const CalendarPage = () => {
         </div>
       </section>
 
-      {/* Calendly Script */}
+      {/* Calendly Script - Simple async load */}
       <Script 
         src="https://assets.calendly.com/assets/external/widget.js" 
         strategy="afterInteractive"
+        onLoad={() => {
+          console.log('📜 Calendly script loaded successfully');
+          console.log('📜 window.Calendly available:', !!window.Calendly);
+          if (window.Calendly) {
+            console.log('📜 Calendly methods:', Object.keys(window.Calendly));
+          }
+        }}
+        onError={(e) => {
+          console.error('❌ Calendly script failed to load:', e);
+        }}
       />
     </div>
   );
