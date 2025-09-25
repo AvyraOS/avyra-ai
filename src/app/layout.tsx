@@ -89,16 +89,30 @@ export const metadata: Metadata = {
   category: "technology",
   icons: {
     icon: [
-      { url: "/favicon.svg", type: "image/svg+xml" },
+      { url: "/icons/favicons/Favicon_White16.svg", sizes: "16x16", type: "image/svg+xml" },
+      { url: "/icons/favicons/Favicon_White32.svg", sizes: "32x32", type: "image/svg+xml" },
+      { url: "/icons/favicons/Favicon_White48.svg", sizes: "48x48", type: "image/svg+xml" },
       { url: "/favicon.ico", sizes: "32x32" }
     ],
     apple: [
-      { url: "/apple-touch-icon.svg", sizes: "180x180", type: "image/svg+xml" }
+      { url: "/icons/favicons/Favicon_Black180.svg", sizes: "180x180", type: "image/svg+xml" }
     ],
     other: [
       {
+        rel: "icon",
+        url: "/icons/favicons/Favicon_White192.svg",
+        sizes: "192x192",
+        type: "image/svg+xml"
+      },
+      {
+        rel: "icon", 
+        url: "/icons/favicons/Favicon_White512.svg",
+        sizes: "512x512",
+        type: "image/svg+xml"
+      },
+      {
         rel: "mask-icon",
-        url: "/favicon.svg",
+        url: "/icons/favicons/Favicon_White32.svg",
         color: "#000000",
       },
     ],
