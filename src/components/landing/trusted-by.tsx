@@ -15,11 +15,11 @@ const testimonials: Testimonial[] = [
  
   {
     id: 1,
-    name: "Zac Barron",
-    role: "Founder",
-    company: "Dexari", 
+    name: "Valerie Song",
+    role: "Co-Founder",
+    company: "Pool", 
     testimonial: "My output doubled without hiring a team, thanks to Avyra's AI assistants",
-    avatar: "/images/user-avatar-4.png"
+    avatar: "/images/user-avatar-5.png"
   },
   {
     id: 2,
@@ -49,9 +49,6 @@ const testimonials: Testimonial[] = [
 ];
 
 export default function TrustedBy() {
-  const handleVideoClick = () => {
-    // Video functionality would be implemented here
-  };
 
   return (
     <section className="bg-[#080808] relative py-16 lg:py-28">
@@ -98,26 +95,14 @@ export default function TrustedBy() {
                          backgroundImage: "url('data:image/svg+xml;utf8,<svg viewBox=\"0 0 437 306\" xmlns=\"http://www.w3.org/2000/svg\" preserveAspectRatio=\"none\"><rect x=\"0\" y=\"0\" height=\"100%\" width=\"100%\" fill=\"url(%23grad)\" opacity=\"1\"/><defs><radialGradient id=\"grad\" gradientUnits=\"userSpaceOnUse\" cx=\"0\" cy=\"0\" r=\"10\" gradientTransform=\"matrix(21.85 0 0 15.3 409.47 24.786)\"><stop stop-color=\"rgba(184,199,217,0.5)\" offset=\"0\"/><stop stop-color=\"rgba(184,199,217,0)\" offset=\"1\"/></radialGradient></defs></svg>')"
                        }} />
                   
-                  {/* Video Thumbnail */}
+                  {/* User Avatar Image */}
                   <div className="relative w-full h-[292px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-[34px] overflow-hidden">
                     <Image
-                      src="/images/video-thumbnail.jpg"
-                      alt="Video testimonial thumbnail"
+                      src="/images/big-user-avatar-4.png"
+                      alt="User testimonial"
                       fill
                       className="object-cover"
                     />
-                    
-                    {/* Play Button */}
-                    <button
-                      onClick={handleVideoClick}
-                      className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-24 h-24 bg-gradient-to-br from-orange-300 to-orange-500 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-200 shadow-lg"
-                    >
-                      <div className="w-[58px] h-[58px] flex items-center justify-center">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="ml-1">
-                          <path d="M8 5v14l11-7z" fill="currentColor"/>
-                        </svg>
-                      </div>
-                    </button>
                   </div>
                   
                   {/* Video Testimonial Text */}
@@ -182,24 +167,14 @@ export default function TrustedBy() {
           
           {/* Video Card */}
           <div className="bg-[#080808] rounded-2xl border border-[rgba(216,231,242,0.07)] shadow-[0px_2px_1px_0px_inset_rgba(207,231,255,0.2)] p-6 relative overflow-hidden">
-            {/* Video Thumbnail */}
+            {/* User Avatar Image */}
             <div className="relative w-full h-[200px] bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl overflow-hidden mb-4">
               <Image
-                src="/images/video-thumbnail.jpg"
-                alt="Video testimonial thumbnail"
+                src="/images/big-user-avatar-4.png"
+                alt="User testimonial"
                 fill
                 className="object-cover"
               />
-              
-              {/* Play Button */}
-              <button
-                onClick={handleVideoClick}
-                className="absolute left-1/2 top-1/2 transform -translate-x-1/2 -translate-y-1/2 w-16 h-16 bg-gradient-to-br from-orange-300 to-orange-500 rounded-full flex items-center justify-center hover:scale-105 transition-transform duration-200 shadow-lg"
-              >
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" className="ml-1">
-                  <path d="M8 5v14l11-7z" fill="currentColor"/>
-                </svg>
-              </button>
             </div>
             
             {/* Video Testimonial Text */}
